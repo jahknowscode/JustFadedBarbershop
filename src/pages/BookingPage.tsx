@@ -11,12 +11,12 @@ import {
   Home,
 } from 'lucide-react';
 import { useRouter } from '@/router';
-import { SectionHeading } from '@/components/Brand';
+
 import { SERVICES, BARBERS, TIME_SLOTS } from '@/data/content';
 import type { Service } from '@/data/types';
 
 const STEPS = ['Service', 'Barber', 'Date & Time', 'Confirm'] as const;
-type StepName = (typeof STEPS)[number];
+
 
 function nextDays(count: number): { label: string; sub: string; iso: string }[] {
   const days: { label: string; sub: string; iso: string }[] = [];
@@ -148,12 +148,12 @@ export function BookingPage() {
       {/* Stepper */}
       <section className="sticky top-20 z-30 border-b border-ink-800 bg-ink-950/95 backdrop-blur-md">
         <div className="container-x">
-          <ol className="flex items-center justify-between gap-2 py-5">
+          <ol className="flex items-center justify-between gap-2 py-3 sm:py-5">
             {STEPS.map((label, i) => {
               const done = i < stepIndex;
               const current = i === stepIndex;
               return (
-                <li key={label} className="flex flex-1 items-center gap-2">
+                <li key={label} className="flex min-w-0 flex-1 items-center gap-2">
                   <div className="flex items-center gap-3">
                     <span
                       className={`flex h-8 w-8 shrink-0 items-center justify-center border text-xs font-semibold transition-all ${
@@ -167,7 +167,7 @@ export function BookingPage() {
                       {done ? <Check className="h-4 w-4" strokeWidth={2} /> : i + 1}
                     </span>
                     <span
-                      className={`hidden text-xs font-semibold uppercase tracking-widest sm:block ${
+                      className={`hidden truncate text-xs font-semibold uppercase tracking-widest sm:block ${
                         current || done ? 'text-neutral-200' : 'text-neutral-600'
                       }`}
                     >
@@ -186,10 +186,10 @@ export function BookingPage() {
         </div>
       </section>
 
-      <section className="bg-ink-900 py-16 lg:py-20">
-        <div className="container-x grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:items-start">
+      <section className="bg-ink-900 py-10 sm:py-16 lg:py-20">
+        <div className="container-x grid min-w-0 gap-8 sm:gap-10 lg:grid-cols-[1.6fr_1fr] lg:items-start">
           {/* Step content */}
-          <div className="min-h-[420px]">
+          <div className="min-h-[420px] min-w-0">
             {step === 'Service' && (
               <div className="animate-fade-in">
                 <h2 className="font-serif text-2xl font-semibold text-neutral-50">
@@ -198,12 +198,12 @@ export function BookingPage() {
                 <p className="mt-2 text-sm text-neutral-400">
                   Select the service you would like to book.
                 </p>
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4">
                   {SERVICES.map((s) => (
                     <button
                       key={s.id}
                       onClick={() => setService(s)}
-                      className={`group flex flex-col border p-5 text-left transition-all ${
+                      className={`group flex min-w-0 flex-col border p-4 text-left transition-all sm:p-5 ${
                         service?.id === s.id
                           ? 'border-gold-400 bg-ink-800'
                           : 'border-ink-700 bg-ink-950 hover:border-neutral-500'
@@ -246,10 +246,10 @@ export function BookingPage() {
                 <p className="mt-2 text-sm text-neutral-400">
                   Pick a specific barber, or go with whoever is available.
                 </p>
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4">
                   <button
                     onClick={() => setBarberId(null)}
-                    className={`flex items-center gap-4 border p-5 text-left transition-all ${
+                    className={`flex min-w-0 items-center gap-3 border p-4 text-left transition-all sm:gap-4 sm:p-5 ${
                       barberId === null
                         ? 'border-gold-400 bg-ink-800'
                         : 'border-ink-700 bg-ink-950 hover:border-neutral-500'
@@ -272,7 +272,7 @@ export function BookingPage() {
                     <button
                       key={b.id}
                       onClick={() => setBarberId(b.id)}
-                      className={`flex items-center gap-4 border p-5 text-left transition-all ${
+                      className={`flex min-w-0 items-center gap-3 border p-4 text-left transition-all sm:gap-4 sm:p-5 ${
                         barberId === b.id
                           ? 'border-gold-400 bg-ink-800'
                           : 'border-ink-700 bg-ink-950 hover:border-neutral-500'
@@ -310,12 +310,12 @@ export function BookingPage() {
                 {/* Date scroller */}
                 <div className="mt-8">
                   <p className="field-label">Select a date</p>
-                  <div className="flex gap-3 overflow-x-auto pb-3">
+                  <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-3">
                     {days.map((d) => (
                       <button
                         key={d.iso}
                         onClick={() => setDate(d.iso)}
-                        className={`flex w-28 shrink-0 flex-col items-center border p-4 transition-all ${
+                        className={`flex w-28 shrink-0 snap-start flex-col items-center border p-4 transition-all ${
                           date === d.iso
                             ? 'border-gold-400 bg-ink-800'
                             : 'border-ink-700 bg-ink-950 hover:border-neutral-500'
@@ -409,7 +409,7 @@ export function BookingPage() {
             )}
 
             {/* Nav buttons */}
-            <div className="mt-10 flex items-center justify-between gap-4">
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 sm:mt-10">
               <button
                 onClick={back}
                 disabled={stepIndex === 0}
@@ -427,7 +427,7 @@ export function BookingPage() {
                 <button
                   onClick={next}
                   disabled={!canProceed}
-                  className={`btn-primary ${
+                  className={`btn-primary w-full sm:w-auto ${
                     !canProceed ? 'cursor-not-allowed opacity-40' : ''
                   }`}
                 >
@@ -435,7 +435,7 @@ export function BookingPage() {
                   <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
                 </button>
               ) : (
-                <button onClick={confirm} className="btn-primary">
+                <button onClick={confirm} className="btn-primary w-full sm:w-auto">
                   <Check className="h-4 w-4" strokeWidth={2} />
                   Confirm Booking
                 </button>
@@ -444,7 +444,7 @@ export function BookingPage() {
           </div>
 
           {/* Summary sidebar */}
-          <aside className="lg:sticky lg:top-44">
+          <aside className="min-w-0 lg:sticky lg:top-44">
             <div className="border border-ink-700 bg-ink-950 p-7">
               <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-gold-400">
                 Your Booking
