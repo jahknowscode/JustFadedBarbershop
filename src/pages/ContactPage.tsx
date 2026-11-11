@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { MapPin, Phone, Clock, Mail, Send, Check } from 'lucide-react';
+import { Phone, Clock, Mail, Send, Check } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { SectionHeading } from '@/components/Brand';
+import { MapDirections } from '@/components/MapDirections';
 import { BUSINESS_HOURS, IMAGES, BUSINESS } from '@/data/content';
 
 export function ContactPage() {
@@ -125,9 +126,8 @@ export function ContactPage() {
                   Visit the Shop
                 </h3>
                 <ul className="mt-5 space-y-4 text-sm text-neutral-300">
-                  <li className="flex items-start gap-3">
-                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" strokeWidth={1.5} />
-                    <span>{BUSINESS.address.line1}<br />{BUSINESS.neighborhood}<br />{BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip}</span>
+                  <li>
+                    <MapDirections iconClassName="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
                   </li>
                   <li className="flex items-center gap-3">
                     <Phone className="h-4 w-4 shrink-0 text-gold-400" strokeWidth={1.5} />

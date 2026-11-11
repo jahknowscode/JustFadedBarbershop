@@ -16,6 +16,12 @@ export const BUSINESS = {
   },
   neighborhood: "Miami's Little Havana",
   instagram: '@justfadedmiami',
+  // Full address string used for map direction queries
+  fullAddress: '1550 SW 1st St, Miami, FL 33135',
+  googleMapsUrl:
+    'https://www.google.com/maps/dir/?api=1&destination=1550+SW+1st+St%2C+Miami%2C+FL+33135',
+  appleMapsUrl:
+    'https://maps.apple.com/?daddr=1550+SW+1st+St%2C+Miami%2C+FL+33135&dirflg=d',
 };
 
 export const IMAGES = {

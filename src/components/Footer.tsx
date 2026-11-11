@@ -1,6 +1,7 @@
-import { MapPin, Phone, Clock, Instagram, Facebook, Scissors } from 'lucide-react';
+import { Phone, Clock, Instagram, Facebook, Scissors } from 'lucide-react';
 import { useRouter } from '@/router';
 import { Logo } from './Brand';
+import { MapDirections } from './MapDirections';
 import { BUSINESS, BUSINESS_HOURS } from '@/data/content';
 
 const FOOTER_LINKS: { label: string; route: 'home' | 'services' | 'barbers' | 'booking' | 'contact' | 'login' | 'register' | 'account' | 'admin' }[] = [
@@ -71,15 +72,8 @@ export function Footer() {
               Visit Us
             </h4>
             <ul className="mt-5 space-y-4 text-sm text-neutral-400">
-              <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" strokeWidth={1.5} />
-                <span>
-                  {BUSINESS.address.line1}
-                  <br />
-                  {BUSINESS.neighborhood}
-                  <br />
-                  {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip}
-                </span>
+              <li>
+                <MapDirections />
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-gold-400" strokeWidth={1.5} />

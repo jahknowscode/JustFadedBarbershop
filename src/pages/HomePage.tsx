@@ -77,13 +77,15 @@ export function HomePage() {
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400" />
               Accepting bookings today
             </span>
-            <button
-              onClick={() => navigate('contact')}
+            <a
+              href={BUSINESS.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden items-center gap-2 text-gold-400 hover:text-gold-300 sm:flex"
             >
               Get directions
               <ArrowRight className="h-3 w-3" strokeWidth={2} />
-            </button>
+            </a>
           </div>
         </div>
       </section>

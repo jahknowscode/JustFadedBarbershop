@@ -19,8 +19,9 @@
 - Imagery: high-quality barber/haircut photography; barber cards use grayscale-to-color hover.
 - Motion: scroll-reveal animations, hover micro-interactions, smooth transitions.
 - Layout: fully responsive (mobile/tablet/desktop); sticky navbar; sticky booking step indicators.
-- Components: reusable cards (service, barber, testimonial), split-screen auth pages, sidebar admin layout, tabbed customer dashboard.
+- Components: reusable cards (service, barber, testimonial), split-screen auth pages, sidebar admin layout, tabbed customer dashboard, `MapDirections` address dropdown.
 - Booking UX: 4-step flow (service → barber → date/time → confirm) with next-14-days date picker and confirmation screen.
+- Map directions: address is clickable; dropdown offers Google Maps (`dir/?api=1&destination=...`) and Apple Maps (`?daddr=...`) links opening directions view in new tab. Wired into Footer, Contact page, and Home hero "Get directions" button.
 - Demo-only states are clearly labeled (auth, booking confirmation) since no persistence exists yet.
 
 ## Decisions, constraints & rationale
@@ -30,6 +31,7 @@
 - No fake payment processing or simulated saved bookings — UI-only at this stage.
 - Realistic placeholder contact info only; no invented real business data.
 - Shared data layer uses typed mock data (services, barbers, testimonials, appointments) so admin CRUD surfaces are editable in UI.
+- Map URL helpers stored in the BUSINESS data object for reuse.
 - Build and type checks pass cleanly.
 
 ## Open questions & assumptions

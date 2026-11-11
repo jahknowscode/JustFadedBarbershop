@@ -9,7 +9,7 @@ function AuthShell({ children, side }: { children: ReactNode; side: 'login' | 'r
       {/* Image side */}
       <div className="relative hidden lg:block">
         <img
-          src={side === 'login' ? IMAGES.beardRazor : IMAGES.contempCut}
+          src={side === 'login' ? IMAGES.fadeRazor : IMAGES.youngCut}
           alt=""
           className="h-full w-full object-cover grayscale"
         />
