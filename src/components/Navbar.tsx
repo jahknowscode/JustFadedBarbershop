@@ -3,11 +3,12 @@ import { Menu, X, CalendarDays, User, LayoutDashboard } from 'lucide-react';
 import { useRouter } from '@/router';
 import { Logo } from './Brand';
 
-const NAV_LINKS: { label: string; route: 'home' | 'services' | 'barbers' | 'booking' | 'contact' }[] = [
+const NAV_LINKS: { label: string; route: 'home' | 'services' | 'barbers' | 'booking' | 'contact' | 'directions' }[] = [
   { label: 'Home', route: 'home' },
   { label: 'Services', route: 'services' },
   { label: 'Barbers', route: 'barbers' },
   { label: 'Booking', route: 'booking' },
+  { label: 'Directions', route: 'directions' },
   { label: 'Contact', route: 'contact' },
 ];
 
@@ -30,7 +31,7 @@ export function Navbar() {
     };
   }, [open]);
 
-  const go = (name: 'home' | 'services' | 'barbers' | 'booking' | 'contact' | 'login' | 'register' | 'account' | 'admin') => {
+  const go = (name: 'home' | 'services' | 'barbers' | 'booking' | 'contact' | 'directions' | 'login' | 'register' | 'account' | 'admin') => {
     navigate(name);
     setOpen(false);
   };

@@ -6,6 +6,7 @@ import { ServicesPage } from '@/pages/ServicesPage';
 import { BarbersPage } from '@/pages/BarbersPage';
 import { BookingPage } from '@/pages/BookingPage';
 import { ContactPage } from '@/pages/ContactPage';
+import { DirectionsPage } from '@/pages/DirectionsPage';
 import { LoginPage, RegisterPage } from '@/pages/AuthPages';
 import { AccountPage } from '@/pages/AccountPage';
 import { AdminPage } from '@/pages/AdminPage';
@@ -26,6 +27,7 @@ function Pages() {
         {route.name === 'barbers' && <BarbersPage />}
         {route.name === 'booking' && <BookingPage />}
         {route.name === 'contact' && <ContactPage />}
+        {route.name === 'directions' && <DirectionsPage />}
         {route.name === 'account' && <AccountPage />}
         {route.name === 'admin' && <AdminPage />}
       </main>

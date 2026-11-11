@@ -6,6 +6,7 @@ type RouteState =
   | { name: 'barbers' }
   | { name: 'booking' }
   | { name: 'contact' }
+  | { name: 'directions' }
   | { name: 'login' }
   | { name: 'register' }
   | { name: 'account' }
@@ -24,6 +25,7 @@ const ROUTE_KEYS: RouteState['name'][] = [
   'barbers',
   'booking',
   'contact',
+  'directions',
   'login',
   'register',
   'account',
