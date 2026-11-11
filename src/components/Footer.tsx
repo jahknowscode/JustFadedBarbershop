@@ -1,4 +1,4 @@
-import { Phone, Clock, Instagram, Facebook, Scissors } from 'lucide-react';
+import { Phone, Instagram, Facebook, Scissors } from 'lucide-react';
 import { useRouter } from '@/router';
 import { Logo } from './Brand';
 import { MapDirections } from './MapDirections';
