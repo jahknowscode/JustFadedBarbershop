@@ -1,7 +1,7 @@
 import { MapPin, Navigation, ExternalLink, Phone, Clock, Car } from 'lucide-react';
 import { useRouter } from '@/router';
 import { Reveal } from '@/components/Reveal';
-import { SectionHeading } from '@/components/Brand';
+
 import { BUSINESS, BUSINESS_HOURS, IMAGES } from '@/data/content';
 
 export function DirectionsPage() {
